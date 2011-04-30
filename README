@@ -1,4 +1,4 @@
-Allows the usage of the php-handlersocket extension (http://code.google.com/p/php-handlersocket/) as Save Handler in the Zend Framework.
+Allows the usage of the php-handlersocket extension ("Percona's noSQL for MySQL") (http://code.google.com/p/php-handlersocket/) as Save Handler in the Zend Framework.
 
 The save handler is basicly the same as in example codes.
 
@@ -9,15 +9,15 @@ In your Bootstrap.php
 [..]
 protected function _initSessionHandler () {
 	Zend_Session::setSaveHandler( new favo_Session_SaveHandler_HandlerSocket(
-										array(
-											'server' => array(
-													'host' => 'localhost',
-													'port' => 9999,
-													'dbname' => 'misc',
-													'dbtable' => 'session'
-												)
-											)
-										)
+					array(
+						'server' => array(
+									'host' => 'localhost',
+									'port' => 9999,
+									'dbname' => 'misc',
+									'dbtable' => 'session'
+								)
+							)
+						)
 					);
 }
 [..]
