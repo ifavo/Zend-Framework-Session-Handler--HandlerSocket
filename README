@@ -1,6 +1,6 @@
-Allows the usage of the php-handlersocket extension ("Percona's noSQL for MySQL") (http://code.google.com/p/php-handlersocket/) as Save Handler in the Zend Framework.
+Allows the usage of the php-handlersocket extension ("Percona's noSQL for MySQL") (http://code.google.com/p/php-handlersocket/) as Session Save Handler in the Zend Framework.
 
-The save handler is basicly the same as in example codes.
+The save handler is basically the same as in the example codes.
 
 Example usage:
 
@@ -25,7 +25,8 @@ protected function _initSessionHandler () {
 
 The MySQL Table structure is:
 
-CREATE TABLE IF NOT EXISTS `session` (
+CREATE DATABASE IF NOT EXISTS `misc`;
+CREATE TABLE IF NOT EXISTS `misc`.`session` (
   `id` varchar(32) NOT NULL DEFAULT '' COMMENT 'session id',
   `modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'last modification time',
   `data` varchar(6000) DEFAULT NULL COMMENT 'the session data',
