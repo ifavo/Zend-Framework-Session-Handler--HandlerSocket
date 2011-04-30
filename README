@@ -1,0 +1,34 @@
+Allows the usage of the php-handlersocket extension (http://code.google.com/p/php-handlersocket/) as Save Handler in the Zend Framework.
+
+The save handler is basicly the same as in example codes.
+
+Example usage:
+
+In your Bootstrap.php
+
+[..]
+protected function _initSessionHandler () {
+	Zend_Session::setSaveHandler( new favo_Session_SaveHandler_HandlerSocket(
+										array(
+											'server' => array(
+													'host' => 'localhost',
+													'port' => 9999,
+													'dbname' => 'misc',
+													'dbtable' => 'session'
+												)
+											)
+										)
+					);
+}
+[..]
+
+
+The MySQL Table structure is:
+
+CREATE TABLE IF NOT EXISTS `session` (
+  `id` varchar(32) NOT NULL DEFAULT '' COMMENT 'session id',
+  `modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'last modification time',
+  `data` varchar(6000) DEFAULT NULL COMMENT 'the session data',
+  PRIMARY KEY (`id`),
+  KEY `modified` (`modified`)
+) ENGINE=InnoDB;
